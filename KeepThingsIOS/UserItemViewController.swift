@@ -10,9 +10,9 @@ import UIKit
 
 class UserItemViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
-    var selectedItem: UserItem?
-    
+    var userItem1 = UserItem(ITEM_ID: 1, ITEM_NAME: "Laptop", ITEM_DESC: "Gebrauchtes Laptop", OWNER: "Nils", BORROWER: "Lulas", DATE_FROM: "27-09-2019", DATE_TO: "27-10-2019")
+    var userItem2 = UserItem(ITEM_ID: 1, ITEM_NAME: "Kopfhörer", ITEM_DESC: "Neue Kopfhörer", OWNER: "Nils", BORROWER: "Lukas", DATE_FROM: "17-03-2019", DATE_TO: "03-04-2019")
+    lazy var userItems = [userItem1, userItem2]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userItems.count
@@ -55,9 +55,7 @@ class UserItemViewController: UIViewController, UITableViewDataSource, UITableVi
 //        }
 //    }
     
-   var userItem1 = UserItem(ITEM_ID: 1, ITEM_NAME: "Laptop", ITEM_DESC: "Gebrauchtes Laptop", OWNER: "Nils", BORROWER: "Lulas", DATE_FROM: "27-09-2019", DATE_TO: "27-10-2019")
-    var userItem2 = UserItem(ITEM_ID: 1, ITEM_NAME: "Kopfhörer", ITEM_DESC: "Neue Kopfhörer", OWNER: "Nils", BORROWER: "Lukas", DATE_FROM: "17-03-2019", DATE_TO: "03-04-2019")
-    lazy var userItems = [userItem1, userItem2]
+   
     
 
     /*

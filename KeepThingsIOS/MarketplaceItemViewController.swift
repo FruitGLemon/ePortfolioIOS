@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MarketplaceItemViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MarketplaceItemViewController: UITableViewController {
 
     
     var marketplaceItem1 = MarketplaceItem(ITEM_ID: 1, ITEM_NAME: "Laptop", ITEM_DESC: "Gebrauchtes Laptop", OWNER: "Nils", DATE_FROM: "27-09-2019", DATE_TO: "27-10-2019")
@@ -19,11 +19,11 @@ class MarketplaceItemViewController: UIViewController, UITableViewDataSource, UI
     lazy var marketplaceItems = [marketplaceItem1, marketplaceItem2, marketplaceItem3, marketplaceItem4]
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return marketplaceItems.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "marketplaceItems", for: indexPath)
         cell.textLabel?.text = marketplaceItems[indexPath.row].ITEM_NAME
         cell.accessoryType = .disclosureIndicator
@@ -31,8 +31,7 @@ class MarketplaceItemViewController: UIViewController, UITableViewDataSource, UI
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "marketplaceItemDetail") as? MarketplaceItemDetailsViewController
         vc?.marketplaceItem = marketplaceItems[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
